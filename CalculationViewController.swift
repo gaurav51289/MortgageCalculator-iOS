@@ -12,6 +12,7 @@ class CalculationViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
     
+    
     @IBOutlet weak var PropertyPriceTextField: UITextField!
     @IBOutlet weak var DownPaymentTextField: UITextField!
     @IBOutlet weak var APRSlider: UISlider!

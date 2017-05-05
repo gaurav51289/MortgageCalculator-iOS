@@ -278,7 +278,7 @@
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UpW-X3-j9e">
                                                         <rect key="frame" x="-2" y="0.0" width="272" height="46"/>
                                                     </slider>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.98 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHP-6I-B4w">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.98 %" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHP-6I-B4w" userLabel="APRValLabel">
                                                         <rect key="frame" x="268" y="0.0" width="75" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="75" id="HHd-eo-cE0"/>
@@ -376,12 +376,11 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="APRSlider" destination="UpW-X3-j9e" id="inv-Dk-jXT"/>
-                        <outlet property="APRTextField" destination="yHP-6I-B4w" id="kSJ-ww-Pwc"/>
-                        <outlet property="CalculateMPButton" destination="mxd-Gd-Lpp" id="VUd-Wx-R96"/>
+                        <outlet property="APRValLabel" destination="yHP-6I-B4w" id="wwg-WV-lN2"/>
                         <outlet property="DownPaymentTextField" destination="BAL-wN-d0h" id="Pla-t5-naf"/>
                         <outlet property="LoanTermsSegments" destination="hsj-9q-heZ" id="iQ6-ni-Xch"/>
-                        <outlet property="MPLabel" destination="Bew-2U-y89" id="Kei-CK-3VM"/>
-                        <outlet property="PropertyPriceVal" destination="i8L-SZ-YrI" id="DaI-Kt-IWu"/>
+                        <outlet property="MPValLabel" destination="Bew-2U-y89" id="KbJ-Jf-iyl"/>
+                        <outlet property="PropertyPriceTextField" destination="i8L-SZ-YrI" id="scA-me-3bY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tke-B9-cdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
