@@ -18,9 +18,9 @@ class CalculationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var APRSlider: UISlider!
     @IBOutlet weak var APRValLabel: UILabel!
     @IBOutlet weak var LoanTermsSegments: UISegmentedControl!
-    
     @IBOutlet weak var MPValLabel: UILabel!
-    
+    var property = Property()
+    var currencyFormatter = NumberFormatter()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,7 +44,25 @@ class CalculationViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    @IBAction func sliderValueChange(_ sender: UISlider) {
+        var currentValue = Float(sender.value)
+        let y = Double(round(100*currentValue)/100)
+        let apr = String(format: "%.2f", currentValue)
+        APRValLabel.text = apr
+        property.setAPR(apr: currencyFormatter.number(from: apr) as! Float)
+        print(property)
+    }
     
+    @IBAction func getSelectedLoanTerm(_ sender: UISegmentedControl) {
+        
+        var selectedIndex = sender.selectedSegmentIndex
+        if selectedIndex == 0{
+            property.setTerm(term: 15)
+        }else{
+            property.setTerm(term: 30)
+        }
+        
+    }
     /*
     // MARK: - Navigation
 
@@ -58,12 +76,29 @@ class CalculationViewController: UIViewController, UITextFieldDelegate {
     //MARK: Actions
     
     @IBAction func CalculateMP(_ sender: Any) {
+        calculateMonthlyPayment()
     }
     
     
     //MARK: Private Methods
     private func calculateMonthlyPayment(){
         
+        property.setPropertyPrice(propPrice: currencyFormatter.number(from: PropertyPriceTextField.text!) as! Float)
+        property.setDownPmtPrice(downPaymnt: currencyFormatter.number(from: DownPaymentTextField.text!) as! Float)
+        
+        var propPrice = property.getPropertyPrice()
+        var downPmt = property.getDownPmt()
+        var apr = property.getAPR()
+        var term = property.getTerm()
+        if downPmt < propPrice {
+            var p = propPrice - downPmt
+            var r = apr/1200
+            var n = term * 12
+            var calculate = p * r * pow((1+r),n)
+            var calc = calculate / (pow((1+r),n)-1)
+            let monthlyPmt = String(format: "%.2f", calc)
+            property.setMonthlyPmt(monthlyPmt: currencyFormatter.number(from: monthlyPmt) as! Float)
+        }
+        
     }
-
 }
