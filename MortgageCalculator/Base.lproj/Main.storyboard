@@ -433,7 +433,7 @@
         <!--Property Details-->
         <scene sceneID="6vH-mw-cXU">
             <objects>
-                <viewController id="c3L-L9-LaG" userLabel="Property Details" sceneMemberID="viewController">
+                <viewController id="c3L-L9-LaG" userLabel="Property Details" customClass="PropertyViewController" customModule="MortgageCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cDd-hK-bjN"/>
                         <viewControllerLayoutGuide type="bottom" id="fuQ-i6-sB1"/>
@@ -589,6 +589,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2S4-sM-ULw" userLabel="Save Property">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                                 <state key="normal" title="Save Property"/>
+                                                <connections>
+                                                    <action selector="saveProperty:" destination="c3L-L9-LaG" eventType="touchUpInside" id="Ikf-zo-VWk"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -607,6 +610,13 @@
                                     <constraint firstItem="w87-4q-icj" firstAttribute="leading" secondItem="bH2-YL-nlz" secondAttribute="leading" id="uoK-3k-q13"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1k-Dx-kiM">
+                                <rect key="frame" x="44" y="463" width="298" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.0020845839088692668" green="0.67128013959390864" blue="0.2492683280391095" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
@@ -620,6 +630,13 @@
                     <navigationItem key="navigationItem" title="Property Details" id="bY7-cE-nle" userLabel="Property Details"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="CityTextField" destination="U6v-WH-jZB" id="Z4v-Uz-H85"/>
+                        <outlet property="SearchLocation" destination="32a-8q-lXj" id="9Fb-8M-p35"/>
+                        <outlet property="StateTextField" destination="iZQ-L8-uap" id="SQH-VL-39a"/>
+                        <outlet property="ZipTextField" destination="ehJ-Oy-RMR" id="z5O-Tx-uOj"/>
+                        <outlet property="address1" destination="TGA-Lz-gC5" id="5ft-2r-IAZ"/>
+                        <outlet property="address2" destination="SQk-7D-HG1" id="8sp-SS-bA0"/>
+                        <outlet property="isPropertySaved" destination="W1k-Dx-kiM" id="EmX-sG-R0H"/>
                         <outlet property="searchDisplayController" destination="ONT-nh-w43" id="T5Z-Y6-PuE"/>
                     </connections>
                 </viewController>
@@ -634,7 +651,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="4522" y="-349"/>
+            <point key="canvasLocation" x="4520.8000000000002" y="-349.47526236881561"/>
         </scene>
     </scenes>
     <resources>

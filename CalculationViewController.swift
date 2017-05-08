@@ -86,10 +86,13 @@ class CalculationViewController: UIViewController, UITextFieldDelegate {
         property.setPropertyPrice(propPrice: currencyFormatter.number(from: PropertyPriceTextField.text!) as! Float)
         property.setDownPmtPrice(downPaymnt: currencyFormatter.number(from: DownPaymentTextField.text!) as! Float)
         
-        var propPrice = property.getPropertyPrice()
-        var downPmt = property.getDownPmt()
-        var apr = property.getAPR()
+        let propPrice = property.getPropertyPrice()
+        let downPmt = property.getDownPmt()
+        let apr = property.getAPR()
         var term = property.getTerm()
+        if term==0{
+            term = 15
+        }
         if downPmt < propPrice {
             var p = propPrice - downPmt
             var r = apr/1200
@@ -98,7 +101,19 @@ class CalculationViewController: UIViewController, UITextFieldDelegate {
             var calc = calculate / (pow((1+r),n)-1)
             let monthlyPmt = String(format: "%.2f", calc)
             property.setMonthlyPmt(monthlyPmt: currencyFormatter.number(from: monthlyPmt) as! Float)
+            MPValLabel.text = "$" + monthlyPmt
         }
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       // super.prepare(for: segue, sender: sender)
+        print(segue.identifier)
+        
+        if let destinationViewController = segue.destination as? PropertyViewController {
+            destinationViewController.property = self.property
+        }        //controller.property = property
+    }
+    
+    
 }

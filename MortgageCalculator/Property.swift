@@ -10,15 +10,17 @@ import Foundation
 
 class Property{
     var propertyPrice: Float = 0.0
-    var address: String = ""
-    var city: String = ""
-    var state: String = ""
-    var zipcode: String = ""
     var apr: Float = 0.0
     var term: Float = 0.0
     var monthlyPmt: Float = 0.0
-    
     var downPymt: Float = 0.0
+    
+    var address1: String = ""
+    var city: String = ""
+    var state:String = ""
+    var zip: String=""
+    var latitude: Double=0
+    var longitude: Double=0
     //var latitude: Double
     //var longitude: Double
     
@@ -70,6 +72,30 @@ class Property{
     
     func getMonthlyPmt() -> Float{
         return self.monthlyPmt
+    }
+    
+    func setAddress(addr: String){
+        self.address1 = addr
+    }
+    
+    func setCity(city: String){
+        self.city = city
+    }
+    
+    func setState(state: String){
+        self.state = state
+    }
+    
+    func setZipCode(zip : String){
+        self.zip = zip
+    }
+    
+    func setLatitude(lat: Double){
+        self.latitude = lat
+    }
+    
+    func setLongitude(longitude: Double){
+        self.longitude = longitude
     }
     
 }
