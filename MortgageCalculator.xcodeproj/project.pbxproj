@@ -12,8 +12,11 @@
 		5A34833F1EB468A30099DAB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A34833E1EB468A30099DAB5 /* Assets.xcassets */; };
 		5A3483421EB468A30099DAB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A3483401EB468A30099DAB5 /* LaunchScreen.storyboard */; };
 		5A4D92671EBC14560099A5A1 /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4D92661EBC14560099A5A1 /* CalculationViewController.swift */; };
+		9C6A777A1EC2A24B000BC429 /* PropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6A77791EC2A24B000BC429 /* PropertyTableViewCell.swift */; };
+		9C6A777C1EC2A9F7000BC429 /* PropertyDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6A777B1EC2A9F7000BC429 /* PropertyDAO.swift */; };
 		9C9FDA7E1EBEB8B60082345D /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FDA7D1EBEB8B60082345D /* Property.swift */; };
 		9C9FDA801EBFD56C0082345D /* PropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FDA7F1EBFD56C0082345D /* PropertyViewController.swift */; };
+		9C9FDA881EC170160082345D /* PropertyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FDA871EC170160082345D /* PropertyTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +27,11 @@
 		5A3483411EB468A30099DAB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A3483431EB468A30099DAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A4D92661EBC14560099A5A1 /* CalculationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculationViewController.swift; path = ../CalculationViewController.swift; sourceTree = "<group>"; };
+		9C6A77791EC2A24B000BC429 /* PropertyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyTableViewCell.swift; sourceTree = "<group>"; };
+		9C6A777B1EC2A9F7000BC429 /* PropertyDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyDAO.swift; sourceTree = "<group>"; };
 		9C9FDA7D1EBEB8B60082345D /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		9C9FDA7F1EBFD56C0082345D /* PropertyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyViewController.swift; sourceTree = "<group>"; };
+		9C9FDA871EC170160082345D /* PropertyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,9 @@
 				5A3483431EB468A30099DAB5 /* Info.plist */,
 				9C9FDA7D1EBEB8B60082345D /* Property.swift */,
 				9C9FDA7F1EBFD56C0082345D /* PropertyViewController.swift */,
+				9C9FDA871EC170160082345D /* PropertyTableViewController.swift */,
+				9C6A77791EC2A24B000BC429 /* PropertyTableViewCell.swift */,
+				9C6A777B1EC2A9F7000BC429 /* PropertyDAO.swift */,
 			);
 			path = MortgageCalculator;
 			sourceTree = "<group>";
@@ -144,7 +153,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C9FDA7E1EBEB8B60082345D /* Property.swift in Sources */,
+				9C9FDA881EC170160082345D /* PropertyTableViewController.swift in Sources */,
+				9C6A777A1EC2A24B000BC429 /* PropertyTableViewCell.swift in Sources */,
 				5A4D92671EBC14560099A5A1 /* CalculationViewController.swift in Sources */,
+				9C6A777C1EC2A9F7000BC429 /* PropertyDAO.swift in Sources */,
 				5A3483361EB468A30099DAB5 /* AppDelegate.swift in Sources */,
 				9C9FDA801EBFD56C0082345D /* PropertyViewController.swift in Sources */,
 			);
