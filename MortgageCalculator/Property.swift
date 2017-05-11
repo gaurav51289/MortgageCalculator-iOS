@@ -25,16 +25,7 @@ class Property{
     init(){
         
     }
-    
-    init(propertyPrice: Float?, apr: Float?, term: Float?, monthlyPmt: Float?, downPmt: Float?, address: String?, city: String?, state: String?, zipcode: String?){
-        
-        self.address1 = address!
-        self.city = city!
-        self.state = state!
-        self.zip = zipcode!
-    }
-    
-    
+
     func setPropertyPrice(propPrice : Float){
         self.propertyPrice = propPrice
     }
