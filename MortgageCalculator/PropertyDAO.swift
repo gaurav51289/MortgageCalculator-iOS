@@ -1,119 +1,30 @@
 //
-//  Property.swift
+//  PropertyDAO.swift
 //  MortgageCalculator
 //
-//  Created by Ekta Sorathia on 5/6/17.
+//  Created by Ekta Sorathia on 5/9/17.
 //  Copyright © 2017 Gaurav Chodwadia. All rights reserved.
 //
 
 import Foundation
+import os.log
 
-class Property{
-    var propertyPrice: Float = 0.0
-    var apr: Float = 0.0
-    var term: Float = 0.0
-    var monthlyPmt: Float = 0.0
-    var downPymt: Float = 0.0
+class PropertyDAO : NSObject, NSCoding {
     
-    var address1: String = ""
-    var city: String = ""
-    var state:String = ""
-    var zip: String=""
-    var latitude: Double=0
-    var longitude: Double=0
+    var propertyPrice: Float
+    var apr: Float
+    var term: Float
+    var monthlyPmt: Float
+    var downPmt: Float
     
-    
-    
-   /* init(address: String, city: String, state: String, zipcode: String){
-        self.address = address
-        self.city = city
-        self.state = state
-        self.zipcode = zipcode
-    }*/
+    var address1: String
+    var city: String
+    var state:String
+    var zip: String
+    var latitude: Double
+    var longitude: Double
     
     
-    func setPropertyPrice(propPrice : Float){
-        self.propertyPrice = propPrice
-    }
-    
-    func setDownPmtPrice(downPaymnt : Float){
-        self.downPymt = downPaymnt
-    }
-    
-    func setAPR(apr : Float){
-        self.apr = apr
-    }
-    
-    func setTerm(term : Float){
-        self.term = term
-    }
-    
-    func setMonthlyPmt(monthlyPmt : Float){
-        self.monthlyPmt = monthlyPmt
-    }
-    
-    func getPropertyPrice() -> Float{
-        return self.propertyPrice
-    }
-    
-    func getDownPmt() -> Float{
-        return self.downPymt
-    }
-    
-    func getAPR() -> Float{
-        return self.apr
-    }
-    
-    func getTerm() -> Float{
-        return self.term
-    }
-    
-    func getMonthlyPmt() -> Float{
-        return self.monthlyPmt
-    }
-    
-    func setAddress(addr: String){
-        self.address1 = addr
-    }
-    
-    func setCity(city: String){
-        self.city = city
-    }
-    
-    func setState(state: String){
-        self.state = state
-    }
-    
-    func setZipCode(zip : String){
-        self.zip = zip
-    }
-    
-    func setLatitude(lat: Double){
-        self.latitude = lat
-    }
-    
-    func setLongitude(longitude: Double){
-        self.longitude = longitude
-    }
-    
-    func getAddress()->String{
-        return self.address1
-    }
-    func getCity() -> String{
-        return self.city
-    }
-    func getState() -> String{
-        return self.state
-    }
-    func getZip() -> String{
-        return self.zip
-    }
-    func getLatitude() -> Double{
-        return self.latitude
-    }
-    func getLongitude() -> Double{
-        return self.longitude
-    }
     
     struct PropertyKey{
         static let propertyPrice = "propertyPrice"
@@ -133,19 +44,18 @@ class Property{
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("properties")
     
-    init(propertyPrice: Float, apr: Float, term: Float, monthlyPmt: Float, downPmt: Float, address1: String?, city: String?, state: String?, zip: String?, latitude: Double?, longitude: Double?) {
-        
+    init(propertyPrice: Float, apr: Float, term: Float, monthlyPmt: Float, downPmt: Float, address1: String, city: String, state: String, zip: String, latitude: Double, longitude: Double) {
         self.propertyPrice = propertyPrice
         self.apr = apr
         self.term = term
-        self.downPymt = downPmt
+        self.downPmt = downPmt
         self.monthlyPmt = monthlyPmt
-        self.address1 = address1!
-        self.city = city!
-        self.state = state!
-        self.zip = zip!
-        self.latitude = latitude!
-        self.longitude = longitude!
+        self.address1 = address1
+        self.city = city
+        self.state = state
+        self.zip = zip
+        self.latitude = latitude
+        self.longitude = longitude
         
     }
     
@@ -156,7 +66,7 @@ class Property{
         aCoder.encode(apr, forKey: PropertyKey.apr)
         aCoder.encode(term, forKey: PropertyKey.term)
         aCoder.encode(monthlyPmt, forKey: PropertyKey.monthlyPmt)
-        aCoder.encode(downPymt, forKey: PropertyKey.downPmt)
+        aCoder.encode(downPmt, forKey: PropertyKey.downPmt)
         aCoder.encode(address1, forKey: PropertyKey.address1)
         aCoder.encode(city, forKey: PropertyKey.city)
         aCoder.encode(state, forKey: PropertyKey.state)
@@ -183,5 +93,4 @@ class Property{
         
         self.init(propertyPrice: Float(propertyPrice), apr: apr as! Float, term: term as! Float, monthlyPmt: monthlyPmt as! Float, downPmt:downPmt as! Float, address1: address1 as! String,city:city as! String, state:state as! String, zip:zip as! String, latitude: latitude as! Double, longitude:longitude)
     }
-    
 }
