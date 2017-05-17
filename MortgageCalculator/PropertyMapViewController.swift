@@ -10,10 +10,22 @@ import UIKit
 import MapKit
 
 class PropertyMapViewController: UIViewController {
+    var resultSearchController:UISearchController? = nil
     let locationManager = CLLocationManager()
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var  mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTableTableViewController") as! LocationSearchTableTableViewController
+        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+        resultSearchController?.searchResultsUpdater = locationSearchTable
+        let searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for places"
+        navigationItem.titleView = resultSearchController?.searchBar
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
+        locationSearchTable.mapView = mapView
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         requestLocationAccess()

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Property{
+class Property: NSObject, NSCoding {
     var propertyPrice: Float = 0.0
     var apr: Float = 0.0
     var term: Float = 0.0
@@ -22,7 +22,7 @@ class Property{
     var latitude: Double=0
     var longitude: Double=0
     
-    init(){
+    override init(){
         
     }
 
@@ -175,7 +175,7 @@ class Property{
         let latitude = aDecoder.decodeObject(forKey: PropertyKey.latitude)
         let longitude = aDecoder.decodeDouble(forKey: PropertyKey.longitude)
         
-        self.init(propertyPrice: Float(propertyPrice), apr: apr as! Float, term: term as! Float, monthlyPmt: monthlyPmt as! Float, downPmt:downPmt as! Float, address1: address1 as! String,city:city as! String, state:state as! String, zip:zip as! String, latitude: latitude as! Double, longitude:longitude)
+        self.init(propertyPrice: Float(propertyPrice), apr: apr as! Float , term: term as! Float, monthlyPmt: monthlyPmt as! Float, downPmt:downPmt as! Float, address1: address1 as! String,city:city as! String, state:state as! String, zip:zip as! String, latitude: latitude as! Double, longitude:longitude)
     }
     
 }
