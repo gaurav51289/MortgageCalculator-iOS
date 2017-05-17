@@ -13,6 +13,7 @@
 		5A3483421EB468A30099DAB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A3483401EB468A30099DAB5 /* LaunchScreen.storyboard */; };
 		5A4D92671EBC14560099A5A1 /* CalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4D92661EBC14560099A5A1 /* CalculationViewController.swift */; };
 		9C2C35FD1ECBF10B008DE81A /* PropertyMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C35FC1ECBF10B008DE81A /* PropertyMapViewController.swift */; };
+		9C2C35FF1ECBFEEC008DE81A /* LocationSearchTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C35FE1ECBFEEC008DE81A /* LocationSearchTableTableViewController.swift */; };
 		9C6A777A1EC2A24B000BC429 /* PropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6A77791EC2A24B000BC429 /* PropertyTableViewCell.swift */; };
 		9C6A777C1EC2A9F7000BC429 /* PropertyDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6A777B1EC2A9F7000BC429 /* PropertyDAO.swift */; };
 		9C9FDA7E1EBEB8B60082345D /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9FDA7D1EBEB8B60082345D /* Property.swift */; };
@@ -29,6 +30,7 @@
 		5A3483431EB468A30099DAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A4D92661EBC14560099A5A1 /* CalculationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculationViewController.swift; path = ../CalculationViewController.swift; sourceTree = "<group>"; };
 		9C2C35FC1ECBF10B008DE81A /* PropertyMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyMapViewController.swift; sourceTree = "<group>"; };
+		9C2C35FE1ECBFEEC008DE81A /* LocationSearchTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableTableViewController.swift; sourceTree = "<group>"; };
 		9C6A77791EC2A24B000BC429 /* PropertyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyTableViewCell.swift; sourceTree = "<group>"; };
 		9C6A777B1EC2A9F7000BC429 /* PropertyDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyDAO.swift; sourceTree = "<group>"; };
 		9C9FDA7D1EBEB8B60082345D /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				9C6A77791EC2A24B000BC429 /* PropertyTableViewCell.swift */,
 				9C6A777B1EC2A9F7000BC429 /* PropertyDAO.swift */,
 				9C2C35FC1ECBF10B008DE81A /* PropertyMapViewController.swift */,
+				9C2C35FE1ECBFEEC008DE81A /* LocationSearchTableTableViewController.swift */,
 			);
 			path = MortgageCalculator;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C9FDA7E1EBEB8B60082345D /* Property.swift in Sources */,
+				9C2C35FF1ECBFEEC008DE81A /* LocationSearchTableTableViewController.swift in Sources */,
 				9C9FDA881EC170160082345D /* PropertyTableViewController.swift in Sources */,
 				9C6A777A1EC2A24B000BC429 /* PropertyTableViewCell.swift in Sources */,
 				5A4D92671EBC14560099A5A1 /* CalculationViewController.swift in Sources */,

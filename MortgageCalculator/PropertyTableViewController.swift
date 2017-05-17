@@ -117,7 +117,7 @@ class PropertyTableViewController: UITableViewController {
     @IBAction func unwindToPropertyList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? PropertyViewController, let property = sourceViewController.property {
                 print(property)
-                //properties.append(property)
+                properties.append(property)
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing meal.
                 properties[selectedIndexPath.row] = property
@@ -136,7 +136,7 @@ class PropertyTableViewController: UITableViewController {
     
 
     func loadProperties() ->[Property]? {
-        print(PropertyDAO.ArchiveURL.path)
+        print(Property.ArchiveURL.path)
         
         var store = NSKeyedUnarchiver.unarchiveObject(withFile: PropertyDAO.ArchiveURL.path) as? [Property]!
         return store!
@@ -144,6 +144,7 @@ class PropertyTableViewController: UITableViewController {
     
     private func saveProperty() {
         //var dao = PropertyDAO(property.getPropertyPrice(),property.getAPR(),property.getTerm(), property.getDownPmt(),property.getMonthlyPmt(),property.getAddress(), property.getCity(),property.getState(), property.getZip(), property.getLatitude(),property.getLongitude())
+        
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(properties, toFile: Property.ArchiveURL.path)
         
         if isSuccessfulSave {

@@ -45,7 +45,7 @@ class PropertyViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    /*!@IBAction func saveProperty(_ sender: Any) {
+    @IBAction func saveProperty(_ sender: Any) {
         if address1.text != ""  && CityTextField.text != "" && StateTextField.text != "" && ZipTextField.text != "" {
             let location = "\(address1.text) \(CityTextField.text) \(StateTextField.text) \(ZipTextField.text)"
             self.address = address1.text!
@@ -58,7 +58,7 @@ class PropertyViewController: UIViewController{
                 self.processResponse(withPlacemarks: placemarks, error: error)
             }
         }
-    }*/
+    }
     
     private func processResponse(withPlacemarks placemarks: [CLPlacemark]?, error: Error?) {
         // Update View
@@ -91,8 +91,20 @@ class PropertyViewController: UIViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // super.prepare(for: segue, sender: sender)
-        print(segue.identifier)
-        
+        if address1.text != ""  && CityTextField.text != "" && StateTextField.text != "" && ZipTextField.text != "" {
+            let location = "\(address1.text) \(CityTextField.text) \(StateTextField.text) \(ZipTextField.text)"
+            self.address = address1.text!
+            self.city = CityTextField.text!
+            self.state = StateTextField.text!
+            self.zip = ZipTextField.text!
+            
+            
+            let geocoder = CLGeocoder()
+            geocoder.geocodeAddressString(location) { (placemarks, error) in
+                // Process Response
+                self.processResponse(withPlacemarks: placemarks, error: error)
+            }
+        }
         if let destinationViewController = segue.destination as? PropertyTableViewController {
             print(self.property)
             destinationViewController.property = self.property
