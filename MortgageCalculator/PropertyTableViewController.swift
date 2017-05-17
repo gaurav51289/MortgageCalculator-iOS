@@ -49,7 +49,7 @@ class PropertyTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "PropertyTableViewCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PropertyTableViewCell else{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier   , for: indexPath) as? PropertyTableViewCell else{
             fatalError("The dequeued cell is not an instance of PropertyTableViewCell.")
         }
         
