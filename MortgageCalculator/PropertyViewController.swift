@@ -46,12 +46,13 @@ class PropertyViewController: UIViewController{
     
     @IBAction func validateAddress(_ sender: Any) {
         if address1.text != ""  && CityTextField.text != "" && StateTextField.text != "" && ZipTextField.text != "" {
-            let location = "\(address1.text) \(CityTextField.text) \(StateTextField.text) \(ZipTextField.text)"
+            var location = "\(address1.text!), \(CityTextField.text!), \(StateTextField.text!), \(ZipTextField.text!)"
+            //var location = "201 S 4th ST, San Jose, CA, 95112"
             self.address = address1.text!
             self.city = CityTextField.text!
             self.state = StateTextField.text!
             self.zip = ZipTextField.text!
-            
+            print(location)
             let geocoder = CLGeocoder()
             geocoder.geocodeAddressString(location) { (placemarks, error) in
                 
