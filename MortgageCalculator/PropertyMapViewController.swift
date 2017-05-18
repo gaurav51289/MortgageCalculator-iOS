@@ -15,6 +15,7 @@ class PropertyMapViewController: UIViewController {
     @IBOutlet weak var  mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTableTableViewController") as! LocationSearchTableTableViewController
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
         resultSearchController?.searchResultsUpdater = locationSearchTable
@@ -27,9 +28,8 @@ class PropertyMapViewController: UIViewController {
         definesPresentationContext = true
         locationSearchTable.mapView = mapView
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         requestLocationAccess()
-
+        
 
         // Do any additional setup after loading the view.
     }

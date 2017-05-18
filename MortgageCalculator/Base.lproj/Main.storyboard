@@ -176,7 +176,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="AddressLabel" destination="JzX-hA-1nT" id="V3E-9d-aRi"/>
                                     <outlet property="DownPmtLabel" destination="f87-Dt-8at" id="dVL-Mo-Evk"/>
                                     <outlet property="DownPmtValLabel" destination="fpA-LM-DrD" id="uld-Ka-DXn"/>
                                     <outlet property="MonthlyPmtLabel" destination="OeX-1x-oh2" id="KXK-KP-4cy"/>
@@ -502,7 +501,7 @@
         <!--Property Details-->
         <scene sceneID="6vH-mw-cXU">
             <objects>
-                <viewController id="c3L-L9-LaG" userLabel="Property Details" customClass="PropertyViewController" customModule="MortgageCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="c3L-L9-LaG" userLabel="Property Details" customClass="PropertyViewController" customModule="MortgageCalculator" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cDd-hK-bjN"/>
                         <viewControllerLayoutGuide type="bottom" id="fuQ-i6-sB1"/>
@@ -655,11 +654,12 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fQi-Rn-NrQ" userLabel="Stack View SP">
                                         <rect key="frame" x="0.0" y="295" width="343" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2S4-sM-ULw" userLabel="Save Property">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgP-Ir-T08" userLabel="Save Property">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
-                                                <state key="normal" title="Save Property"/>
+                                                <state key="normal" title="Validate Address"/>
                                                 <connections>
-                                                    <segue destination="pYU-mB-kGT" kind="unwind" unwindAction="unwindToPropertyListWithSender:" id="J3Y-kM-Sy1"/>
+                                                    <action selector="saveAndRedirect:" destination="c3L-L9-LaG" eventType="touchUpInside" id="08I-Dc-2cS"/>
+                                                    <action selector="validateAddress:" destination="c3L-L9-LaG" eventType="touchUpInside" id="9EH-8p-NJd"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -679,13 +679,22 @@
                                     <constraint firstItem="w87-4q-icj" firstAttribute="leading" secondItem="bH2-YL-nlz" secondAttribute="leading" id="uoK-3k-q13"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1k-Dx-kiM">
-                                <rect key="frame" x="44" y="463" width="298" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raO-au-f9Q">
+                                <rect key="frame" x="166" y="491" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="textColor" red="0.0020845839088692668" green="0.67128013959390864" blue="0.2492683280391095" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2S4-sM-ULw" userLabel="Save Property">
+                                <rect key="frame" x="16" y="401" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save Property"/>
+                                <connections>
+                                    <action selector="saveAndRedirect:" destination="c3L-L9-LaG" eventType="touchUpInside" id="fwo-d5-Vs0"/>
+                                    <segue destination="8Oy-qn-20x" kind="unwind" unwindAction="unwindToPropertyListWithSender:" id="WVe-W5-XPn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
@@ -705,12 +714,14 @@
                         <outlet property="ZipTextField" destination="ehJ-Oy-RMR" id="z5O-Tx-uOj"/>
                         <outlet property="address1" destination="TGA-Lz-gC5" id="5ft-2r-IAZ"/>
                         <outlet property="address2" destination="SQk-7D-HG1" id="8sp-SS-bA0"/>
-                        <outlet property="isPropertySaved" destination="W1k-Dx-kiM" id="EmX-sG-R0H"/>
+                        <outlet property="saveProperty" destination="2S4-sM-ULw" id="anh-aE-zIe"/>
                         <outlet property="searchDisplayController" destination="ONT-nh-w43" id="T5Z-Y6-PuE"/>
+                        <outlet property="validateAddrBttn" destination="fgP-Ir-T08" id="wrL-7b-c8l"/>
+                        <outlet property="validateError" destination="raO-au-f9Q" id="6J4-TS-dVa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOB-CR-qEw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="pYU-mB-kGT" userLabel="Exit" sceneMemberID="exit"/>
+                <exit id="8Oy-qn-20x" userLabel="Exit" sceneMemberID="exit"/>
                 <searchDisplayController id="ONT-nh-w43">
                     <connections>
                         <outlet property="delegate" destination="c3L-L9-LaG" id="0LL-ZU-9cg"/>
