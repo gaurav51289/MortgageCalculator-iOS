@@ -29,7 +29,16 @@ class PropertyMapViewController: UIViewController {
         locationSearchTable.mapView = mapView
         locationManager.delegate = self
         requestLocationAccess()
-        
+        if let savedProperty = loadProperties() {
+            
+            for i in 0 ..< savedProperty.count {
+                var local_prop = savedProperty[i]
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = CLLocationCoordinate2D(latitude: local_prop.latitude, longitude: local_prop.longitude)
+                annotation.title = local_prop.address1
+                mapView.addAnnotation(annotation)
+            }
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -88,5 +97,12 @@ extension PropertyMapViewController : CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("error:: (error)")
+    }
+    
+    func loadProperties() ->[Property]? {
+        print(Property.ArchiveURL.path)
+        
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Property.ArchiveURL.path) as? [Property]
+        //return store!
     }
 }
