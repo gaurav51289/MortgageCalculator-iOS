@@ -49,7 +49,7 @@ class CalculationViewController: UIViewController, UITextFieldDelegate {
         let y = Double(round(100*currentValue)/100)
         let apr = String(format: "%.2f", currentValue)
         APRValLabel.text = apr
-        property.setAPR(apr: currencyFormatter.number(from: apr) as! Float)
+        property.setAPR(apr: currencyFormatter.number(from: apr) as! Double)
         print(property)
     }
     
@@ -83,8 +83,8 @@ class CalculationViewController: UIViewController, UITextFieldDelegate {
     //MARK: Private Methods
     private func calculateMonthlyPayment(){
         
-        property.setPropertyPrice(propPrice: currencyFormatter.number(from: PropertyPriceTextField.text!) as! Float)
-        property.setDownPmtPrice(downPaymnt: currencyFormatter.number(from: DownPaymentTextField.text!) as! Float)
+        property.setPropertyPrice(propPrice: currencyFormatter.number(from: PropertyPriceTextField.text!) as! Double)
+        property.setDownPmtPrice(downPaymnt: currencyFormatter.number(from: DownPaymentTextField.text!) as! Double)
         
         let propPrice = property.getPropertyPrice()
         let downPmt = property.getDownPmt()
@@ -100,7 +100,7 @@ class CalculationViewController: UIViewController, UITextFieldDelegate {
             var calculate = p * r * pow((1+r),n)
             var calc = calculate / (pow((1+r),n)-1)
             let monthlyPmt = String(format: "%.2f", calc)
-            property.setMonthlyPmt(monthlyPmt: currencyFormatter.number(from: monthlyPmt) as! Float)
+            property.setMonthlyPmt(monthlyPmt: currencyFormatter.number(from: monthlyPmt) as! Double)
             MPValLabel.text = "$" + monthlyPmt
         }
         

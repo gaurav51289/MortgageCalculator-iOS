@@ -9,11 +9,11 @@
 import Foundation
 
 class Property: NSObject, NSCoding {
-    var propertyPrice: Float = 0.0
-    var apr: Float = 0.0
-    var term: Float = 0.0
-    var monthlyPmt: Float = 0.0
-    var downPymt: Float = 0.0
+    var propertyPrice: Double = 0.0
+    var apr: Double = 0.0
+    var term: Double = 0.0
+    var monthlyPmt: Double = 0.0
+    var downPymt: Double = 0.0
     
     var address1: String = ""
     var city: String = ""
@@ -26,43 +26,43 @@ class Property: NSObject, NSCoding {
         
     }
 
-    func setPropertyPrice(propPrice : Float){
+    func setPropertyPrice(propPrice : Double){
         self.propertyPrice = propPrice
     }
     
-    func setDownPmtPrice(downPaymnt : Float){
+    func setDownPmtPrice(downPaymnt : Double){
         self.downPymt = downPaymnt
     }
     
-    func setAPR(apr : Float){
+    func setAPR(apr : Double){
         self.apr = apr
     }
     
-    func setTerm(term : Float){
+    func setTerm(term : Double){
         self.term = term
     }
     
-    func setMonthlyPmt(monthlyPmt : Float){
+    func setMonthlyPmt(monthlyPmt : Double){
         self.monthlyPmt = monthlyPmt
     }
     
-    func getPropertyPrice() -> Float{
+    func getPropertyPrice() -> Double{
         return self.propertyPrice
     }
     
-    func getDownPmt() -> Float{
+    func getDownPmt() -> Double{
         return self.downPymt
     }
     
-    func getAPR() -> Float{
+    func getAPR() -> Double{
         return self.apr
     }
     
-    func getTerm() -> Float{
+    func getTerm() -> Double{
         return self.term
     }
     
-    func getMonthlyPmt() -> Float{
+    func getMonthlyPmt() -> Double{
         return self.monthlyPmt
     }
     
@@ -127,7 +127,7 @@ class Property: NSObject, NSCoding {
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("properties")
     
-    init(propertyPrice: Float, apr: Float, term: Float, monthlyPmt: Float, downPmt: Float, address1: String?, city: String?, state: String?, zip: String?, latitude: Double?, longitude: Double?) {
+    init(propertyPrice: Double, apr: Double, term: Double, monthlyPmt: Double, downPmt: Double, address1: String?, city: String?, state: String?, zip: String?, latitude: Double?, longitude: Double?) {
         
         self.propertyPrice = propertyPrice
         self.apr = apr
@@ -146,6 +146,7 @@ class Property: NSObject, NSCoding {
     
     
     func encode(with aCoder: NSCoder) {
+        
         aCoder.encode(propertyPrice,forKey: PropertyKey.propertyPrice)
         aCoder.encode(apr, forKey: PropertyKey.apr)
         aCoder.encode(term, forKey: PropertyKey.term)
@@ -164,18 +165,18 @@ class Property: NSObject, NSCoding {
     required convenience init?(coder aDecoder: NSCoder) {
         
         let propertyPrice = aDecoder.decodeDouble(forKey:PropertyKey.propertyPrice)
-        let apr = aDecoder.decodeObject(forKey: PropertyKey.apr)
-        let term = aDecoder.decodeObject(forKey: PropertyKey.term)
-        let monthlyPmt = aDecoder.decodeObject(forKey: PropertyKey.monthlyPmt)
-        let downPmt = aDecoder.decodeObject(forKey: PropertyKey.downPmt)
-        let address1 = aDecoder.decodeObject(forKey: PropertyKey.address1)
-        let city = aDecoder.decodeObject(forKey: PropertyKey.city)
-        let state = aDecoder.decodeObject(forKey: PropertyKey.state)
+        let apr = aDecoder.decodeDouble(forKey: PropertyKey.apr)
+        let term = aDecoder.decodeDouble(forKey: PropertyKey.term)
+        let monthlyPmt = aDecoder.decodeDouble(forKey: PropertyKey.monthlyPmt)
+        let downPmt = aDecoder.decodeDouble(forKey: PropertyKey.downPmt)
+        let address1 = aDecoder.decodeObject(forKey: PropertyKey.address1) as? String
+        let city = aDecoder.decodeObject(forKey: PropertyKey.city) as? String
+        let state = aDecoder.decodeObject(forKey: PropertyKey.state) as? String
         let zip = aDecoder.decodeObject(forKey: PropertyKey.zip)
-        let latitude = aDecoder.decodeObject(forKey: PropertyKey.latitude)
+        let latitude = aDecoder.decodeDouble(forKey: PropertyKey.latitude)
         let longitude = aDecoder.decodeDouble(forKey: PropertyKey.longitude)
         
-        self.init(propertyPrice: Float(propertyPrice), apr: apr as! Float , term: term as! Float, monthlyPmt: monthlyPmt as! Float, downPmt:downPmt as! Float, address1: address1 as! String,city:city as! String, state:state as! String, zip:zip as! String, latitude: latitude as! Double, longitude:longitude)
+        self.init(propertyPrice: propertyPrice, apr: apr, term: term, monthlyPmt: monthlyPmt, downPmt:downPmt , address1: address1!,city:city!, state:state!, zip:zip as! String, latitude: latitude , longitude:longitude)
     }
     
 }

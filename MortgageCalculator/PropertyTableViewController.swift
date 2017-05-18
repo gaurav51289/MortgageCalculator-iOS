@@ -54,7 +54,8 @@ class PropertyTableViewController: UITableViewController {
         }
         
         let propertyCell = properties[indexPath.row]
-        cell.AddressLabel.text = propertyCell.address1
+        //cell.AddressLabel.text = propertyCell.address1
+        //cell.AddressLabel. =
         cell.DownPmtValLabel.text = String(propertyCell.downPymt)
         cell.DownPmtLabel.text = "Down Payment:"
         cell.MonthlyPmtLabel.text = "Monthly Payment:"
@@ -115,31 +116,34 @@ class PropertyTableViewController: UITableViewController {
     */
     
     @IBAction func unwindToPropertyList(sender: UIStoryboardSegue) {
+        
         if let sourceViewController = sender.source as? PropertyViewController, let property = sourceViewController.property {
                 print(property)
-                properties.append(property)
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            
+           /* if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing meal.
                 properties[selectedIndexPath.row] = property
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
-            else {
+            else {*/
                 // Add a new meal.
+                print(properties.count)
                 let newIndexPath = IndexPath(row: properties.count, section: 0)
                 
                 properties.append(property)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }
-             saveProperty()
+           // }
+            
         }
+        saveProperty()
     }
     
 
     func loadProperties() ->[Property]? {
         print(Property.ArchiveURL.path)
         
-        var store = NSKeyedUnarchiver.unarchiveObject(withFile: PropertyDAO.ArchiveURL.path) as? [Property]!
-        return store!
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Property.ArchiveURL.path) as? [Property]
+        //return store!
     }
     
     private func saveProperty() {
